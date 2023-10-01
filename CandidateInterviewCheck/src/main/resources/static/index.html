@@ -1,0 +1,247 @@
+<!-- <!DOCTYPE html>
+<html ng-app="candidateApp">
+<head>
+    <title>Candidate Management</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="candidateService.js"></script>
+</head>
+<body ng-controller="CandidateController">
+
+    <h1>Candidates</h1>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Purpose</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Source</th>
+            <th>Assigned To</th>
+            <th>Status</th>
+            <th>Score</th>
+            <th>Eligible For Interview</th>
+            <th>Referral</th>
+            <th>Process Status</th>
+            <th>Actions</th>
+        </tr>
+       
+        <tr ng-repeat="candidate in candidates">
+            <td>{{ candidate.id }}</td>
+            <td>{{ candidate.purpose }}</td>
+            <td>{{ candidate.name }}</td>
+            <td>{{ candidate.email }}</td>
+            <td>{{ candidate.role }}</td>
+            <td>{{ candidate.source }}</td>
+            <td>{{ candidate.assignedTo }}</td>
+            <td>{{ candidate.status }}</td>
+            <td>{{ candidate.score }}</td>
+            <td>{{ candidate.eligibleForInterview }}</td>
+            <td>{{ candidate.referral }}</td>
+            <td>{{ candidate.processStatus }}</td>
+            <td>
+                <button ng-click="getCandidateById(candidate.id)">Edit</button>
+                <button ng-click="deleteCandidate(candidate.id)">Delete</button>
+            </td>
+        </tr>
+    </table>
+
+    <h2>Add Candidate</h2>
+    <form ng-submit="addCandidate(newCandidate)">
+        <input type="text" ng-model="newCandidate.purpose" placeholder="Purpose" required><br>
+        <input type="text" ng-model="newCandidate.name" placeholder="Name" required><br>
+        <input type="email" ng-model="newCandidate.email" placeholder="Email" required><br>
+        <input type="text" ng-model="newCandidate.role" placeholder="Role" required><br>
+        <input type="text" ng-model="newCandidate.source" placeholder="Source" required><br>
+        <input type="text" ng-model="newCandidate.assignedTo" placeholder="Assigned To" required><br>
+        <input type="text" ng-model="newCandidate.status" placeholder="Status" required><br>
+        <input type="number" ng-model="newCandidate.score" placeholder="Score" required><br>
+        <input type="checkbox" ng-model="newCandidate.eligibleForInterview"> Eligible for Interview<br>
+        <input type="text" ng-model="newCandidate.referral" placeholder="Referral" required><br>
+        <input type="text" ng-model="newCandidate.processStatus" placeholder="Process Status" required><br>
+        <button type="submit">Add Candidate</button>
+    </form>
+
+    <h2>Edit Candidate</h2>
+    <form ng-submit="updateCandidate(selectedCandidate)">
+        <input type="hidden" ng-model="selectedCandidate.id">
+        <input type="text" ng-model="selectedCandidate.purpose" placeholder="Purpose" required><br>
+        <input type="text" ng-model="selectedCandidate.name" placeholder="Name" required><br>
+        <input type="email" ng-model="selectedCandidate.email" placeholder="Email" required><br>
+        <input type="text" ng-model="selectedCandidate.role" placeholder="Role" required><br>
+        <input type="text" ng-model="selectedCandidate.source" placeholder="Source" required><br>
+        <input type="text" ng-model="selectedCandidate.assignedTo" placeholder="Assigned To" required><br>
+        <input type="text" ng-model="selectedCandidate.status" placeholder="Status" required><br>
+        <input type="number" ng-model="selectedCandidate.score" placeholder="Score" required><br>
+        <input type="checkbox" ng-model="selectedCandidate.eligibleForInterview"> Eligible for Interview<br>
+        <input type="text" ng-model="selectedCandidate.referral" placeholder="Referral" required><br>
+        <input type="text" ng-model="selectedCandidate.processStatus" placeholder="Process Status" required><br>
+        <button type="submit">Update Candidate</button>
+    </form>
+
+</body>
+</html> -->
+<!-- 
+<!DOCTYPE html>
+<html lang="en" ng-app="candidateApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Candidate Management</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+
+    <script src="mainController.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller="MainController">
+    <h1>Candidate Management</h1>
+    <form ng-submit="createCandidate()">
+        <input ng-model="candidate.purpose" placeholder="Purpose" required><br>
+        <input ng-model="candidate.name" placeholder="Name" required><br>
+        <input ng-model="candidate.email" placeholder="Email" required><br>
+        <input ng-model="candidate.role" placeholder="Role" required><br>
+        <input ng-model="candidate.source" placeholder="Source" required><br>
+        <input ng-model="candidate.assignedTo" placeholder="Assigned To" required><br>
+        <input ng-model="candidate.status" placeholder="Status" required><br>
+        <input ng-model="candidate.score" type="number" placeholder="Score" required><br>
+        <input ng-model="candidate.eligibleForInterview" type="checkbox"><span>Eligible for Interview</span><br>
+        <input ng-model="candidate.referral" placeholder="Referral" required><br>
+        <input ng-model="candidate.processStatus" placeholder="Process Status" required><br>
+        <button type="submit">Add Candidate</button>
+    </form>
+    <ul>
+        <li ng-repeat="candidate in candidates">
+            {{ candidate.name }} - {{ candidate.email }}
+            <button ng-click="editCandidate(candidate)">Edit</button>
+            <button ng-click="deleteCandidate(candidate.id)">Delete</button>
+        </li>
+    </ul>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html lang="en" ng-app="candidateApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Candidate Management</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.8.2/angular.min.js"></script>
+    <script src="app.js"></script>
+    <script src="mainController.js"></script>
+</head>
+<body ng-controller="MainController">
+    <h1>Candidate Management</h1>
+
+  // Form for adding new candidate
+    <form ng-submit="createCandidate()">
+        <label>
+            Purpose:
+            <input ng-model="candidate.purpose" required>
+        </label><br>
+        <label>
+            Name:
+            <input ng-model="candidate.name" required>
+        </label><br>
+        <label>
+            Email:
+            <input ng-model="candidate.email" required>
+        </label><br>
+        <label>
+            Role:
+            <input ng-model="candidate.role" required>
+        </label><br>
+        <label>
+            Source:
+            <input ng-model="candidate.source" required>
+        </label><br>
+        <label>
+            Assigned To:
+            <input ng-model="candidate.assignedTo" required>
+        </label><br>
+        <label>
+            Status:
+            <input ng-model="candidate.status" required>
+        </label><br>
+        <label>
+            Score:
+            <input ng-model="candidate.score" type="number" required>
+        </label><br>
+        <label>
+            Eligible for Interview:
+            <input ng-model="candidate.eligibleForInterview" type="checkbox">
+        </label><br>
+        <label>
+            Referral:
+            <input ng-model="candidate.referral" required>
+        </label><br>
+        <label>
+            Process Status:
+            <input ng-model="candidate.processStatus" required>
+        </label><br>
+        <button type="submit">Add Candidate</button>
+    </form>
+
+  //   List of candidates 
+    <h2>Candidates</h2>
+    <ul>
+        <li ng-repeat="candidate in candidates">
+            <strong>Purpose:</strong> {{ candidate.purpose }}<br>
+            <strong>Name:</strong> {{ candidate.name }}<br>
+            <strong>Email:</strong> {{ candidate.email }}<br>
+            <strong>Role:</strong> {{ candidate.role }}<br>
+            <strong>Source:</strong> {{ candidate.source }}<br>
+            <strong>Assigned To:</strong> {{ candidate.assignedTo }}<br>
+            <strong>Status:</strong> {{ candidate.status }}<br>
+            <strong>Score:</strong> {{ candidate.score }}<br>
+            <strong>Eligible for Interview:</strong> {{ candidate.eligibleForInterview }}<br>
+            <strong>Referral:</strong> {{ candidate.referral }}<br>
+            <strong>Process Status:</strong> {{ candidate.processStatus }}<br>
+            
+            // Buttons for editing and deleting candidates 
+            <button ng-click="editCandidate(candidate)">Edit</button>
+            <button ng-click="deleteCandidate(candidate.id)">Delete</button>
+            
+            <hr>
+        </li>
+    </ul>
+</body>
+</html> -->
+<!-- <!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Candidate Management System</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="app.js"></script>
+    <script src="candidateService.js"></script>
+    <script src="candidateController.js"></script>
+    <link rel="stylesheet" href="styles.css">
+
+</head>
+<body>
+
+<h1>Candidate Management System</h1>
+
+<div ng-view></div>
+
+</body>
+</html> -->
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+    <title>Candidate Management System</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.min.js"></script>
+    <script src="app.js"></script>
+    <script src="candidateService.js"></script>
+    <script src="candidateController.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<h1>Candidate Management System</h1>
+
+<div ng-view></div>
+
+</body>
+</html>

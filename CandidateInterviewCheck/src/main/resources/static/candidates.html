@@ -1,0 +1,307 @@
+<!-- <h2>Candidates List</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Purpose</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Source</th>
+            <th>Assigned To</th>
+            <th>Status</th>
+            <th>Score</th>
+            <th>Eligible For Interview</th>
+            <th>Referral</th>
+            <th>Process Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="candidate in candidates">
+            <td>{{ candidate.id }}</td>
+            <td>{{ candidate.purpose }}</td>
+            <td>{{ candidate.name }}</td>
+            <td>{{ candidate.email }}</td>
+            <td>{{ candidate.role }}</td>
+            <td>{{ candidate.source }}</td>
+            <td>{{ candidate.assignedTo }}</td>
+            <td>{{ candidate.status }}</td>
+            <td>{{ candidate.score }}</td>
+            <td>{{ candidate.eligibleForInterview }}</td>
+            <td>{{ candidate.referral }}</td>
+            <td>{{ candidate.processStatus }}</td>
+            <td>
+                <button ng-click="editCandidate(candidate)">Edit</button>
+                <button ng-click="deleteCandidate(candidate.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div ng-if="editedCandidate">
+    <h2>Edit Candidate</h2>
+
+    <form ng-submit="saveEditedCandidate()">
+        <label>ID:</label>
+        <input type="text" ng-model="editedCandidate.id" readonly><br>
+
+        <label>Purpose:</label>
+        <input type="text" ng-model="editedCandidate.purpose" required><br>
+
+        <label>Name:</label>
+        <input type="text" ng-model="editedCandidate.name" required><br>
+
+        <label>Email:</label>
+        <input type="email" ng-model="editedCandidate.email" required><br>
+
+        <label>Role:</label>
+        <input type="text" ng-model="editedCandidate.role" required><br>
+
+        <label>Source:</label>
+        <input type="text" ng-model="editedCandidate.source" required><br>
+
+        <label>Assigned To:</label>
+        <input type="text" ng-model="editedCandidate.assignedTo" required><br>
+
+        <label>Status:</label>
+        <input type="text" ng-model="editedCandidate.status" required><br>
+
+        <label>Score:</label>
+        <input type="number" ng-model="editedCandidate.score" required><br>
+
+        <label>Eligible For Interview:</label>
+        <input type="checkbox" ng-model="editedCandidate.eligibleForInterview"><br>
+
+        <label>Referral:</label>
+        <input type="text" ng-model="editedCandidate.referral" required><br>
+
+        <label>Process Status:</label>
+        <input type="text" ng-model="editedCandidate.processStatus" required><br>
+
+        <button type="submit">Save Changes</button>
+        <button type="button" ng-click="cancelEdit()">Cancel</button>
+    </form>
+</div>
+
+<h2>Add New Candidate</h2>
+
+<form ng-submit="addCandidate()">
+   
+
+    <label>Purpose:</label>
+    <input type="text" ng-model="newCandidate.purpose" required><br>
+
+    <label>Name:</label>
+    <input type="text" ng-model="newCandidate.name" required><br>
+
+    <label>Email:</label>
+    <input type="email" ng-model="newCandidate.email" required><br>
+
+    <label>Role:</label>
+    <input type="text" ng-model="newCandidate.role" required><br>
+
+    <label>Source:</label>
+    <input type="text" ng-model="newCandidate.source" required><br>
+
+    <label>Assigned To:</label>
+    <input type="text" ng-model="newCandidate.assignedTo" required><br>
+
+    <label>Status:</label>
+    <input type="text" ng-model="newCandidate.status" required><br>
+
+    <label>Score:</label>
+    <input type="number" ng-model="newCandidate.score" required min="0" max="100"><br>
+
+    <label>Eligible For Interview:</label>
+    <input type="checkbox" ng-model="newCandidate.eligibleForInterview"><br>
+
+    <label>Referral:</label>
+    <input type="text" ng-model="newCandidate.referral" required><br>
+
+    <label>Process Status:</label>
+    <input type="text" ng-model="newCandidate.processStatus" required><br>
+
+    <button type="submit">Add Candidate</button>
+</form> -->
+<h2>Candidates List</h2>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Purpose</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+            <th>Source</th>
+            <th>Assigned To</th>
+            <th>Status</th>
+            <th>Score</th>
+            <th>Eligible For Interview</th>
+            <th>Referral</th>
+            <th>Process Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="candidate in candidates">
+            <td>{{ candidate.id }}</td>
+            <td>{{ candidate.purpose }}</td>
+            <td>{{ candidate.name }}</td>
+            <td>{{ candidate.email }}</td>
+            <td>{{ candidate.role }}</td>
+            <td>{{ candidate.source }}</td>
+            <td>{{ candidate.assignedTo }}</td>
+            <td>{{ candidate.status }}</td>
+            <td>{{ candidate.score }}</td>
+            <td>{{ candidate.eligibleForInterview }}</td>
+            <td>{{ candidate.referral }}</td>
+            <td>{{ candidate.processStatus }}</td>
+            <td>
+                <button class="btn btn-primary" ng-click="editCandidate(candidate)">Edit</button>
+                <button class="btn btn-danger" ng-click="deleteCandidate(candidate.id)">Delete</button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div ng-if="editedCandidate">
+    <h2>Edit Candidate</h2>
+
+    <form ng-submit="saveEditedCandidate()" class="row">
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>ID:</label>
+                <input type="text" ng-model="editedCandidate.id" class="form-control" readonly>
+            </div>
+
+            <div class="form-group">
+                <label>Purpose:</label>
+                <input type="text" ng-model="editedCandidate.purpose" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Name:</label>
+                <input type="text" ng-model="editedCandidate.name" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" ng-model="editedCandidate.email" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Role:</label>
+                <input type="text" ng-model="editedCandidate.role" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Source:</label>
+                <input type="text" ng-model="editedCandidate.source" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Assigned To:</label>
+                <input type="text" ng-model="editedCandidate.assignedTo" class="form-control" required>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label>Status:</label>
+                <input type="text" ng-model="editedCandidate.status" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Score:</label>
+                <input type="number" ng-model="editedCandidate.score" class="form-control" required min="0" max="100">
+            </div>
+
+            <div class="form-group">
+                <label>Eligible For Interview:</label>
+                <input type="checkbox" ng-model="editedCandidate.eligibleForInterview" class="form-check-input">
+            </div>
+
+            <div class="form-group">
+                <label>Referral:</label>
+                <input type="text" ng-model="editedCandidate.referral" class="form-control" required>
+            </div>
+
+            <div class="form-group">
+                <label>Process Status:</label>
+                <input type="text" ng-model="editedCandidate.processStatus" class="form-control" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Save Changes</button>
+            <button type="button" class="btn btn-secondary" ng-click="cancelEdit()">Cancel</button>
+        </div>
+    </form>
+</div>
+
+<h2>Add New Candidate</h2>
+
+<form ng-submit="addCandidate()" class="row">
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="newPurpose">Purpose:</label>
+            <input type="text" ng-model="newCandidate.purpose" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="newName">Name:</label>
+            <input type="text" ng-model="newCandidate.name" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="newEmail">Email:</label>
+            <input type="email" ng-model="newCandidate.email" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="newRole">Role:</label>
+            <input type="text" ng-model="newCandidate.role" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="newSource">Source:</label>
+            <input type="text" ng-model="newCandidate.source" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="newAssignedTo">Assigned To:</label>
+            <input type="text" ng-model="newCandidate.assignedTo" class="form-control" required>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="form-group">
+            <label for="newStatus">Status:</label>
+            <input type="text" ng-model="newCandidate.status" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="newScore">Score:</label>
+            <input type="number" ng-model="newCandidate.score" class="form-control" required min="0" max="100">
+        </div>
+
+        <div class="form-group">
+            <label for="newEligibleForInterview">Eligible For Interview:</label>
+            <input type="checkbox" ng-model="newCandidate.eligibleForInterview" class="form-check-input">
+        </div>
+
+        <div class="form-group">
+            <label for="newReferral">Referral:</label>
+            <input type="text" ng-model="newCandidate.referral" class="form-control" required>
+        </div>
+
+        <div class="form-group">
+            <label for="newProcessStatus">Process Status:</label>
+            <input type="text" ng-model="newCandidate.processStatus" class="form-control" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Candidate</button>
+    </div>
+
+</form>
